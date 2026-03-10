@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: el mundial 2026</title>
+    <style>
+        :root {
+            --color-primario: #0e3e2b; /* Verde oscuro elegante */
+            --color-secundario: #1b5e40;
+            --color-acento: #e67e22; /* Naranja para resaltar */
+            --fondo-cuerpo: #f4f7f6;
+            --fondo-panel: #ffffff;
+            --texto-oscuro: #2c3e50;
+            --texto-claro: #ecf0f1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--fondo-cuerpo);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            color: var(--texto-oscuro);
+        }
+
+        /* Menú lateral (Navegación) */
+        aside {
+            width: 300px;
+            background-color: var(--color-primario);
+            color: var(--texto-claro);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .header-aside {
+            padding: 30px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-aside h1 {
+            font-size: 1.4em;
+            margin: 0;
+            line-height: 1.3;
+            color: white;
+        }
+
+        .header-aside p {
+            font-size: 0.9em;
+            color: #bdc3c7;
+            margin-top: 10px;
+        }
+
+        nav {
+            flex-grow: 1;
+            padding: 20px 0;
+            overflow-y: auto;
+        }
+
+        .nav-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #bdc3c7;
+            text-align: left;
+            padding: 15px 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255,255,255,0.05);
+            color: white;
+        }
+
+        .nav-btn.activa {
+            background-color: var(--color-secundario);
+            color: white;
+            border-left: 4px solid var(--color-acento);
+            font-weight: bold;
+        }
+
+        /* Contenido principal */
+        main {
+            flex-grow: 1;
+            padding: 50px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .contenedor-contenido {
+            max-width: 800px;
+            width: 100%;
+            background: var(--fondo-panel);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .seccion {
+            display: none;
+            animation: deslizarArriba 0.5s ease;
+        }
+
+        .seccion.activa {
+            display: block;
+        }
+
+        @keyframes deslizarArriba {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--color-primario);
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Ajuste para pantallas móviles */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                width: 100%;
+                height: auto;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            nav {
+                display: flex;
+                overflow-x: auto;
+                padding: 0;
+            }
+            .nav-btn {
+                white-space: nowrap;
+                border-left: none;
+                border-bottom: 4px solid transparent;
+            }
+            .nav-btn.activa {
+                border-left: none;
+                border-bottom: 4px solid var(--color-acento);
+            }
+            main {
+                padding: 20px;
+            }
+            .contenedor-contenido {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="header-aside">
+            <h1>Análisis económico y social</h1>
+            <p></p>
+        </div>
+        <nav>
+            <button class="nav-btn activa" onclick="mostrarSeccion('sec-inicio', this)">Portada</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-intro', this)">Introducción</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-oportunidad', this)">1. Costo de oportunidad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)">2. Realidad macroeconómica</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)">3. Inflación e informalidad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">4. Crisis de seguridad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">Conclusiones</button>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="contenedor-contenido">
+            
+            <div id="sec-inicio" class="seccion activa" style="text-align: center; margin-top: 10%;">
+                <h2 style="border: none; font-size: 3em; color: var(--color-primario);">El mundial 2026 frente a la realidad económica y social de México</h2>
+                <p style="font-size: 1.5em; color: #7f8c8d;"></p>
+            </div>
+            <div id="sec-intro" class="seccion">
+                <h2>Introducción</h2>
+                <ul>
+                    <li>A solo 3 meses del evento (junio 2026), México hace historia al ser sede por tercera vez.</li>
+                    <li>Recordamos la magia del 70 con Pelé y del 86 con Maradona.</li>
+                    <li>El fútbol en nuestro país, un tejido social y una enorme maquinaria económica.</li>
+                    <li>El objetivo de hoy es analizar más allá de la pasión deportiva, viendo el impacto económico real frente al contexto nacional.</li>
+                </ul>
+            </div>
+
+            <div id="sec-oportunidad" class="seccion">
+                <h2>1. Costo de oportunidad</h2>
+                <ul>
+                    <li>El fútbol acapara el 90% de atención, patrocinios y recursos.</li>
+                    <li>Sin embargo, sufrimos un estancamiento deportivo global (la obsesión por el "quinto partido").</li>
+                    <li>Contraste con nuestras verdaderas potencias mundiales con menor presupuesto:
+                        <ul>
+                            <li><strong>Boxeo:</strong> exportación constante de campeones.</li>
+                            <li><strong>Clavados y taekwondo:</strong> medallas olímpicas pese a crisis estructurales.</li>
+                            <li><strong>Béisbol:</strong> semifinales históricas en el clásico de 2023.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="sec-macro" class="seccion">
+                <h2>2. Realidad macroeconómica</h2>
+                <ul>
+                    <li>Acierto logístico: modernizamos la infraestructura existente (CDMX, Guadalajara, Monterrey) sin endeudarnos masivamente.</li>
+                    <li>Proyecciones optimistas:
+                        <ul>
+                            <li><strong>Derrama directa:</strong> 2,700 a 3,000 millones de dólares.</li>
+                            <li><strong>Flujo turístico:</strong> 5.5 millones de visitantes.</li>
+                        </ul>
+                    </li>
+                    <li>La realidad macro: aportará solo entre 0.1% y 0.14% adicional al PIB. Un respiro, no una solución estructural.</li>
+                </ul>
+            </div>
+
+            <div id="sec-micro" class="seccion">
+                <h2>3. Inflación e informalidad</h2>
+                <ul>
+                    <li><strong>Inflación y gentrificación:</strong> la llegada de dólares y euros encarecerá la vida local. El "efecto Airbnb" afectará rentas y servicios en zonas aledañas a los estadios.</li>
+                    <li><strong>El filtro de la informalidad:</strong> más del 50% de la economía opera en este sector.</li>
+                    <li>El flujo de efectivo en las calles no se traducirá en recaudación fiscal ni en empleos con seguridad social a largo plazo.</li>
+                </ul>
+            </div>
+
+            <div id="sec-seguridad" class="seccion">
+                <h2>4. Crisis de seguridad</h2>
+                <ul>
+                    <li>La variable más crítica: la muerte de "El Mencho" y la reestructuración criminal violenta.</li>
+                    <li>Afectación directa a sedes clave como Guadalajara y estados vecinos por bloqueos y enfrentamientos.</li>
+                    <li>El miedo destruye la economía turística: el riesgo de alertas de viaje severas por parte de Estados Unidos o Canadá.</li>
+                    <li>Amenaza real de cancelaciones masivas que desplomarían la derrama económica proyectada.</li>
+                </ul>
+            </div>
+
+            <div id="sec-conclusion" class="seccion">
+                <h2>Conclusiones</h2>
+                <ul>
+                    <li>Hospedar tres mundiales es un hito de orgullo y generará inyección de capital a corto plazo en ciertos sectores.</li>
+                    <li>Pero el torneo dura un mes; nuestras fracturas crónicas (informalidad, inflación y seguridad desbordada) se quedan.</li>
+                    <li>Digitalicemos negocios y aprovechemos la oportunidad comercial con precaución.</li>
+                    <li>El verdadero partido por la paz y el desarrollo de México se juega todos los días, y hoy, el marcador está en contra.</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function mostrarSeccion(idSeccion, boton) {
+            // Ocultar todas las secciones
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(sec => sec.classList.remove('activa'));
+
+            // Quitar clase activa de todos los botones
+            const botones = document.querySelectorAll('.nav-btn');
+            botones.forEach(btn => btn.classList.remove('activa'));
+
+            // Mostrar la sección seleccionada y activar el botón
+            document.getElementById(idSeccion).classList.add('activa');
+            boton.classList.add('activa');
+        }
+    </script>
+
+</body>
+</html>
