@@ -6,9 +6,9 @@
     <title>Presentación: el mundial 2026</title>
     <style>
         :root {
-            --color-primario: #0e3e2b; /* Verde oscuro elegante */
+            --color-primario: #0e3e2b;
             --color-secundario: #1b5e40;
-            --color-acento: #e67e22; /* Naranja para resaltar */
+            --color-acento: #e67e22;
             --fondo-cuerpo: #f4f7f6;
             --fondo-panel: #ffffff;
             --texto-oscuro: #2c3e50;
@@ -26,7 +26,6 @@
             color: var(--texto-oscuro);
         }
 
-        /* Menú lateral (Navegación) */
         aside {
             width: 300px;
             background-color: var(--color-primario);
@@ -86,7 +85,6 @@
             font-weight: bold;
         }
 
-        /* Botón de Pantalla Completa */
         .btn-pantalla-completa {
             margin: 20px;
             padding: 15px;
@@ -102,10 +100,9 @@
         }
 
         .btn-pantalla-completa:hover {
-            background-color: #d35400; /* Naranja más oscuro al pasar el cursor */
+            background-color: #d35400;
         }
 
-        /* Contenido principal */
         main {
             flex-grow: 1;
             padding: 50px;
@@ -147,6 +144,13 @@
             padding-bottom: 10px;
         }
 
+        h3 {
+            color: var(--color-secundario);
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
         p, li {
             font-size: 1.2em;
             line-height: 1.7;
@@ -161,7 +165,19 @@
             margin-bottom: 10px;
         }
 
-        /* Ajuste para pantallas móviles */
+        .qa-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--color-acento);
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .qa-box p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -213,7 +229,8 @@
             <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)">3. Inflación e informalidad</button>
             <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)">4. El efecto en Campeche</button>
             <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">5. Crisis de seguridad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">Conclusiones</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)">6. Preguntas y respuestas</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">7. Conclusiones</button>
         </nav>
         <button id="btn-fullscreen" class="btn-pantalla-completa" onclick="alternarPantallaCompleta()">Ver en pantalla completa</button>
     </aside>
@@ -225,6 +242,7 @@
                 <h2 style="border: none; font-size: 3em; color: var(--color-primario);">El mundial 2026 frente a la realidad económica y social de México</h2>
                 <p style="font-size: 1.5em; color: #7f8c8d;"></p>
             </div>
+
             <div id="sec-intro" class="seccion">
                 <h2>Introducción</h2>
                 <ul>
@@ -293,8 +311,36 @@
                 </ul>
             </div>
 
+            <div id="sec-qa" class="seccion">
+                <h2>6. Preguntas y respuestas (apoyo)</h2>
+                
+                <div class="qa-box">
+                    <h3>El dilema de los megaeventos</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Sabiendo que la FIFA se lleva las ganancias sin pagar impuestos mientras a nosotros nos pega la inflación, ¿no habría sido mejor rechazar ser sede?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "El aislacionismo no es la solución. Negarnos significaría perder miles de millones en inyección extranjera y una vitrina global. El problema real no es el mundial, es nuestra debilidad estructural. La lección no es dejar de invitar al mundo a nuestra casa, sino arreglar nuestra casa: formalizar el empleo y digitalizar a nuestras pymes para retener esa riqueza."</p>
+                </div>
+
+                <div class="qa-box">
+                    <h3>El pánico de seguridad</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Faltando solo 90 días, ¿es factible que la FIFA decida quitarnos sedes si la violencia empeora?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Logísticamente es casi imposible a estas alturas por los contratos blindados. Lo que ocurrirá es un 'encapsulamiento de seguridad': burbujas hipervigiladas en estadios y hoteles. El verdadero riesgo no es perder la sede en papel, sino perder al turista de a pie que cancele su vuelo por miedo a las alertas internacionales."</p>
+                </div>
+
+                <div class="qa-box">
+                    <h3>Supervivencia ante la gentrificación</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Como ciudadanos o dueños de pequeños negocios, ¿qué podemos hacer hoy para protegernos del 'efecto Airbnb' y la inflación?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Como inquilinos, renegociar contratos a largo plazo antes de mayo. Como consumidores, anticipar compras. Y como dueños de pymes, la adaptación agresiva: conseguir terminales de cobro internacional, ofrecer Wi-Fi y traducir menús al inglés para transformar esa amenaza en inyección directa de capital."</p>
+                </div>
+
+                <div class="qa-box">
+                    <h3>El reto del emprendedor campechano</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Como dueño de un pequeño negocio en Campeche, ¿qué paso práctico debo dar hoy para atraer a ese turista extranjero que huye del caos de las sedes principales?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "La clave absoluta es la visibilidad digital anticipada. Ese turista no llegará a Campeche por casualidad; lo va a planear desde su país al ver los precios de CDMX o Guadalajara. El emprendedor debe asegurar hoy su presencia en mapas digitales en inglés, habilitar cobros internacionales y dejar de vender servicios para empaquetar 'experiencias culturales'. Es el momento de aliarse con agencias en la Riviera Maya para ser la parada obligada en la ruta del Tren Maya."</p>
+                </div>
+            </div>
+
             <div id="sec-conclusion" class="seccion">
-                <h2>Conclusiones</h2>
+                <h2>7. Conclusiones</h2>
                 <ul>
                     <li>Hospedar tres mundiales es un hito de orgullo y generará inyección de capital a corto plazo en ciertos sectores.</li>
                     <li>Pero el torneo dura un mes; nuestras fracturas crónicas (informalidad, inflación y seguridad desbordada) se quedan.</li>
@@ -308,20 +354,16 @@
 
     <script>
         function mostrarSeccion(idSeccion, boton) {
-            // Ocultar todas las secciones
             const secciones = document.querySelectorAll('.seccion');
             secciones.forEach(sec => sec.classList.remove('activa'));
 
-            // Quitar clase activa de todos los botones
             const botones = document.querySelectorAll('.nav-btn');
             botones.forEach(btn => btn.classList.remove('activa'));
 
-            // Mostrar la sección seleccionada y activar el botón
             document.getElementById(idSeccion).classList.add('activa');
             boton.classList.add('activa');
         }
 
-        // FUNCIONALIDAD DE PANTALLA COMPLETA
         function alternarPantallaCompleta() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch((err) => {
@@ -334,15 +376,14 @@
             }
         }
 
-        // Cambiar el texto del botón dependiendo del estado
         document.addEventListener('fullscreenchange', () => {
             const btn = document.getElementById('btn-fullscreen');
             if (document.fullscreenElement) {
                 btn.textContent = "Salir de pantalla completa";
-                btn.style.backgroundColor = "#c0392b"; // Rojo sutil al estar en pantalla completa
+                btn.style.backgroundColor = "#c0392b";
             } else {
                 btn.textContent = "Ver en pantalla completa";
-                btn.style.backgroundColor = "var(--color-acento)"; // Vuelve a naranja
+                btn.style.backgroundColor = "var(--color-acento)";
             }
         });
     </script>
