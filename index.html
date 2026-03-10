@@ -86,6 +86,25 @@
             font-weight: bold;
         }
 
+        /* Botón de Pantalla Completa */
+        .btn-pantalla-completa {
+            margin: 20px;
+            padding: 15px;
+            background-color: var(--color-acento);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-pantalla-completa:hover {
+            background-color: #d35400; /* Naranja más oscuro al pasar el cursor */
+        }
+
         /* Contenido principal */
         main {
             flex-grow: 1;
@@ -166,6 +185,10 @@
                 border-left: none;
                 border-bottom: 4px solid var(--color-acento);
             }
+            .btn-pantalla-completa {
+                margin: 10px;
+                padding: 10px;
+            }
             main {
                 padding: 20px;
             }
@@ -192,6 +215,7 @@
             <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">5. Crisis de seguridad</button>
             <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">Conclusiones</button>
         </nav>
+        <button id="btn-fullscreen" class="btn-pantalla-completa" onclick="alternarPantallaCompleta()">Ver en pantalla completa</button>
     </aside>
 
     <main>
@@ -296,6 +320,31 @@
             document.getElementById(idSeccion).classList.add('activa');
             boton.classList.add('activa');
         }
+
+        // FUNCIONALIDAD DE PANTALLA COMPLETA
+        function alternarPantallaCompleta() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch((err) => {
+                    alert(`Error al intentar activar la pantalla completa: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Cambiar el texto del botón dependiendo del estado
+        document.addEventListener('fullscreenchange', () => {
+            const btn = document.getElementById('btn-fullscreen');
+            if (document.fullscreenElement) {
+                btn.textContent = "Salir de pantalla completa";
+                btn.style.backgroundColor = "#c0392b"; // Rojo sutil al estar en pantalla completa
+            } else {
+                btn.textContent = "Ver en pantalla completa";
+                btn.style.backgroundColor = "var(--color-acento)"; // Vuelve a naranja
+            }
+        });
     </script>
 
 </body>
