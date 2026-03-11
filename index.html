@@ -6,9 +6,9 @@
     <title>Presentación: el mundial 2026</title>
     <style>
         :root {
-            --color-primario: #0e3e2b; /* Verde oscuro elegante */
+            --color-primario: #0e3e2b;
             --color-secundario: #1b5e40;
-            --color-acento: #e67e22; /* Naranja para resaltar */
+            --color-acento: #e67e22;
             --fondo-cuerpo: #f4f7f6;
             --fondo-panel: #ffffff;
             --texto-oscuro: #2c3e50;
@@ -71,8 +71,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
-            display: flex;
-            align-items: center;
         }
 
         .nav-btn:hover {
@@ -85,12 +83,6 @@
             color: white;
             border-left: 4px solid var(--color-acento);
             font-weight: bold;
-        }
-
-        /* Estilo para los íconos */
-        .icono-menu {
-            margin-right: 15px;
-            font-size: 1.2em;
         }
 
         .btn-pantalla-completa {
@@ -186,7 +178,7 @@
             margin-bottom: 10px;
         }
 
-        /* AJUSTES PARA CELULARES */
+        /* AJUSTES ESPECÍFICOS PARA CELULARES */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -206,6 +198,7 @@
                 display: flex;
                 overflow-x: auto;
                 padding: 0;
+                /* Ocultar barra de scroll en móviles para un diseño más limpio */
                 scrollbar-width: none;
                 -ms-overflow-style: none;
                 scroll-snap-type: x mandatory;
@@ -224,9 +217,6 @@
             .nav-btn.activa {
                 border-left: none;
                 border-bottom: 4px solid var(--color-acento);
-            }
-            .icono-menu {
-                margin-right: 10px;
             }
             .btn-pantalla-completa {
                 margin: 10px;
@@ -262,15 +252,15 @@
             <p></p>
         </div>
         <nav>
-            <button class="nav-btn activa" onclick="mostrarSeccion('sec-inicio', this)"><span class="icono-menu">🏟️</span>Portada</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-intro', this)"><span class="icono-menu">🏆</span>Introducción</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-oportunidad', this)"><span class="icono-menu">🥊</span>1. Costo de oportunidad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)"><span class="icono-menu">📈</span>2. Macroeconomía</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)"><span class="icono-menu">💸</span>3. Inflación</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)"><span class="icono-menu">🚄</span>4. Efecto Campeche</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)"><span class="icono-menu">👮</span>5. Seguridad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)"><span class="icono-menu">🏁</span>6. Conclusiones</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)"><span class="icono-menu">❓</span>7. Q&A</button>
+            <button class="nav-btn activa" onclick="mostrarSeccion('sec-inicio', this)">Portada</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-intro', this)">Introducción</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-oportunidad', this)">1. Costo de oportunidad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)">2. Macroeconomía</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)">3. Inflación</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)">4. Efecto Campeche</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">5. Seguridad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">6. Conclusiones</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)">7. Q&A</button>
         </nav>
         <button id="btn-fullscreen" class="btn-pantalla-completa" onclick="alternarPantallaCompleta()">Ver en pantalla completa</button>
     </aside>
@@ -403,6 +393,7 @@
             document.getElementById(idSeccion).classList.add('activa');
             boton.classList.add('activa');
             
+            // Si estamos en móvil, centramos el botón pulsado en la vista de la barra deslizante
             if (window.innerWidth <= 768) {
                 boton.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
