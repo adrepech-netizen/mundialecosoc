@@ -178,6 +178,7 @@
             margin-bottom: 10px;
         }
 
+        /* AJUSTES ESPECÍFICOS PARA CELULARES */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -187,15 +188,31 @@
                 height: auto;
                 box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             }
+            .header-aside {
+                padding: 15px 20px;
+            }
+            .header-aside h1 {
+                font-size: 1.2em;
+            }
             nav {
                 display: flex;
                 overflow-x: auto;
                 padding: 0;
+                /* Ocultar barra de scroll en móviles para un diseño más limpio */
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                scroll-snap-type: x mandatory;
+            }
+            nav::-webkit-scrollbar {
+                display: none;
             }
             .nav-btn {
                 white-space: nowrap;
                 border-left: none;
                 border-bottom: 4px solid transparent;
+                padding: 15px 20px;
+                font-size: 1em;
+                scroll-snap-align: start;
             }
             .nav-btn.activa {
                 border-left: none;
@@ -204,12 +221,25 @@
             .btn-pantalla-completa {
                 margin: 10px;
                 padding: 10px;
+                font-size: 0.9em;
             }
             main {
-                padding: 20px;
+                padding: 15px;
             }
             .contenedor-contenido {
-                padding: 30px;
+                padding: 20px;
+            }
+            h2 {
+                font-size: 1.6em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            p, li {
+                font-size: 1.05em;
+            }
+            #sec-inicio h2 {
+                font-size: 2em !important;
             }
         }
     </style>
@@ -225,12 +255,12 @@
             <button class="nav-btn activa" onclick="mostrarSeccion('sec-inicio', this)">Portada</button>
             <button class="nav-btn" onclick="mostrarSeccion('sec-intro', this)">Introducción</button>
             <button class="nav-btn" onclick="mostrarSeccion('sec-oportunidad', this)">1. Costo de oportunidad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)">2. Realidad macroeconómica</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)">3. Inflación e informalidad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)">4. El efecto en Campeche</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">5. Crisis de seguridad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)">6. Preguntas y respuestas</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">7. Conclusiones</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)">2. Macroeconomía</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)">3. Inflación</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)">4. Efecto Campeche</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">5. Seguridad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">6. Conclusiones</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)">7. Q&A</button>
         </nav>
         <button id="btn-fullscreen" class="btn-pantalla-completa" onclick="alternarPantallaCompleta()">Ver en pantalla completa</button>
     </aside>
@@ -292,12 +322,12 @@
             </div>
 
             <div id="sec-campeche" class="seccion">
-                <h2>4. Campeche</h2>
+                <h2>4. El efecto periférico: Campeche</h2>
                 <ul>
-                    <li><strong>Inflación:</strong> la economía local absorberá el impacto inflacionario nacional (costos logísticos, alimentos) sin recibir directamente la derrama de divisas.</li>
-                    <li><strong>Turismo:</strong> a través del Tren Maya y el aeropuerto, podemos atraer a turistas internacionales que buscan escapar del caos y los sobreprecios de las ciudades sede.</li>
-                    <li><strong>Mercado meta:</strong> posicionar a Campeche como un "refugio cultural y seguro", apoyándonos en nuestro estatus de patrimonio de la humanidad, Calakmul y altos índices de paz.</li>
-                    <li><strong>Reto:</strong> para captar este mercado, pymes y sector turístico deben empaquetar experiencias, digitalizar métodos de cobro y ofrecer información en inglés.</li>
+                    <li><strong>El riesgo (daño colateral):</strong> la economía local absorberá el impacto inflacionario nacional (costos logísticos, alimentos) sin recibir directamente la derrama de divisas.</li>
+                    <li><strong>La oportunidad turística:</strong> a través del Tren Maya y el aeropuerto, podemos atraer a turistas internacionales que buscan escapar del caos y los sobreprecios de las ciudades sede.</li>
+                    <li><strong>Nuestro mercado meta:</strong> posicionar a Campeche como un "refugio cultural y seguro", apoyándonos en nuestro estatus de patrimonio de la humanidad, Calakmul y altos índices de paz.</li>
+                    <li><strong>El reto local:</strong> para captar este mercado, pymes y sector turístico deben empaquetar experiencias, digitalizar métodos de cobro y ofrecer información en inglés.</li>
                 </ul>
             </div>
 
@@ -311,42 +341,42 @@
                 </ul>
             </div>
 
-            <div id="sec-qa" class="seccion">
-                <h2>6. Preguntas desde la economía</h2>
-                
-                <div class="qa-box">
-                    <h3>Cancelación</h3>
-                    <p><strong>Pregunta 1:</strong> Sabiendo que la FIFA se lleva las ganancias sin pagar impuestos mientras a nosotros nos pega la inflación, ¿no habría sido mejor rechazar ser sede?</p>
-                    <p><strong>Respuesta 1:</strong> El aislacionismo no es la solución. Negarnos significaría perder miles de millones en inyección extranjera y una vitrina global. El problema real no es el mundial, es nuestra debilidad estructural. La lección no es dejar de invitar al mundo a nuestra casa, sino arreglar nuestra casa: formalizar el empleo y digitalizar a nuestras pymes para retener esa riqueza.</p>
-                </div>
-
-                <div class="qa-box">
-                    <h3>La inseguridad</h3>
-                    <p><strong>Pregunta 2:</strong> Faltando solo 90 días, ¿es factible que la FIFA decida quitarnos sedes si la violencia empeora?</p>
-                    <p><strong>Respuesta 2:</strong> Logísticamente es casi imposible a estas alturas por los contratos blindados. Lo que ocurrirá es un 'encapsulamiento de seguridad': burbujas hipervigiladas en estadios y hoteles. El verdadero riesgo no es perder la sede en papel, sino perder al turista de a pie que cancele su vuelo por miedo a las alertas internacionales.</p>
-                </div>
-
-                <div class="qa-box">
-                    <h3>Supervivencia ante la gentrificación</h3>
-                    <p><strong>Pregunta 3:</strong> Como ciudadanos o dueños de pequeños negocios, ¿qué podemos hacer hoy para protegernos del 'efecto Airbnb' y la inflación?</p>
-                    <p><strong>Respuesta 3:</strong> Como inquilinos, renegociar contratos a largo plazo antes de mayo. Como consumidores, anticipar compras. Y como dueños de pymes, la adaptación agresiva: conseguir terminales de cobro internacional, ofrecer Wi-Fi y traducir menús al inglés para transformar esa amenaza en inyección directa de capital.</p>
-                </div>
-
-                <div class="qa-box">
-                    <h3>Economía campechana</h3>
-                    <p><strong>Pregunta 4:</strong> Como dueño de un pequeño negocio en Campeche, ¿qué paso práctico debo dar hoy para atraer a ese turista extranjero que huye del caos de las sedes principales?</p>
-                    <p><strong>Respuesta 4:</strong> La clave absoluta es la visibilidad digital anticipada. Ese turista no llegará a Campeche por casualidad; lo va a planear desde su país al ver los precios de CDMX o Guadalajara. El emprendedor debe asegurar hoy su presencia en mapas digitales en inglés, habilitar cobros internacionales y dejar de vender servicios para empaquetar 'experiencias culturales'. Es el momento de aliarse con agencias en la Riviera Maya para ser la parada obligada en la ruta del Tren Maya.</p>
-                </div>
-            </div>
-
             <div id="sec-conclusion" class="seccion">
-                <h2>7. Conclusiones</h2>
+                <h2>6. Conclusiones</h2>
                 <ul>
                     <li>Hospedar tres mundiales es un hito de orgullo y generará inyección de capital a corto plazo en ciertos sectores.</li>
                     <li>Pero el torneo dura un mes; nuestras fracturas crónicas (informalidad, inflación y seguridad desbordada) se quedan.</li>
                     <li>Digitalicemos negocios y aprovechemos la oportunidad comercial con precaución.</li>
                     <li>El verdadero partido por la paz y el desarrollo de México se juega todos los días, y hoy, el marcador está en contra.</li>
                 </ul>
+            </div>
+
+            <div id="sec-qa" class="seccion">
+                <h2>7. Preguntas y respuestas (apoyo)</h2>
+                
+                <div class="qa-box">
+                    <h3>El dilema de los megaeventos</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Sabiendo que la FIFA se lleva las ganancias sin pagar impuestos mientras a nosotros nos pega la inflación, ¿no habría sido mejor rechazar ser sede?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "El aislacionismo no es la solución. Negarnos significaría perder miles de millones en inyección extranjera y una vitrina global. El problema real no es el mundial, es nuestra debilidad estructural. La lección no es dejar de invitar al mundo a nuestra casa, sino arreglar nuestra casa: formalizar el empleo y digitalizar a nuestras pymes para retener esa riqueza."</p>
+                </div>
+
+                <div class="qa-box">
+                    <h3>El pánico de seguridad</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Faltando solo 90 días, ¿es factible que la FIFA decida quitarnos sedes si la violencia empeora?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Logísticamente es casi imposible a estas alturas por los contratos blindados. Lo que ocurrirá es un 'encapsulamiento de seguridad': burbujas hipervigiladas en estadios y hoteles. El verdadero riesgo no es perder la sede en papel, sino perder al turista de a pie que cancele su vuelo por miedo a las alertas internacionales."</p>
+                </div>
+
+                <div class="qa-box">
+                    <h3>Supervivencia ante la gentrificación</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Como ciudadanos o dueños de pequeños negocios, ¿qué podemos hacer hoy para protegernos del 'efecto Airbnb' y la inflación?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Como inquilinos, renegociar contratos a largo plazo antes de mayo. Como consumidores, anticipar compras. Y como dueños de pymes, la adaptación agresiva: conseguir terminales de cobro internacional, ofrecer Wi-Fi y traducir menús al inglés para transformar esa amenaza en inyección directa de capital."</p>
+                </div>
+
+                <div class="qa-box">
+                    <h3>El reto del emprendedor campechano</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "Como dueño de un pequeño negocio en Campeche, ¿qué paso práctico debo dar hoy para atraer a ese turista extranjero que huye del caos de las sedes principales?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "La clave absoluta es la visibilidad digital anticipada. Ese turista no llegará a Campeche por casualidad; lo va a planear desde su país al ver los precios de CDMX o Guadalajara. El emprendedor debe asegurar hoy su presencia en mapas digitales en inglés, habilitar cobros internacionales y dejar de vender servicios para empaquetar 'experiencias culturales'. Es el momento de aliarse con agencias en la Riviera Maya para ser la parada obligada en la ruta del Tren Maya."</p>
+                </div>
             </div>
 
         </div>
@@ -362,12 +392,17 @@
 
             document.getElementById(idSeccion).classList.add('activa');
             boton.classList.add('activa');
+            
+            // Si estamos en móvil, centramos el botón pulsado en la vista de la barra deslizante
+            if (window.innerWidth <= 768) {
+                boton.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
         }
 
         function alternarPantallaCompleta() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch((err) => {
-                    alert(`Error al intentar activar la pantalla completa: ${err.message}`);
+                    alert(`Tu navegador no permite pantalla completa o necesitas interactuar primero.`);
                 });
             } else {
                 if (document.exitFullscreen) {
