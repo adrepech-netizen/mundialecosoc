@@ -71,6 +71,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
         }
 
         .nav-btn:hover {
@@ -83,6 +85,11 @@
             color: white;
             border-left: 4px solid var(--color-acento);
             font-weight: bold;
+        }
+
+        .icono-menu {
+            margin-right: 15px;
+            font-size: 1.2em;
         }
 
         .btn-pantalla-completa {
@@ -178,7 +185,6 @@
             margin-bottom: 10px;
         }
 
-        /* AJUSTES ESPECÍFICOS PARA CELULARES */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -198,7 +204,6 @@
                 display: flex;
                 overflow-x: auto;
                 padding: 0;
-                /* Ocultar barra de scroll en móviles para un diseño más limpio */
                 scrollbar-width: none;
                 -ms-overflow-style: none;
                 scroll-snap-type: x mandatory;
@@ -217,6 +222,9 @@
             .nav-btn.activa {
                 border-left: none;
                 border-bottom: 4px solid var(--color-acento);
+            }
+            .icono-menu {
+                margin-right: 10px;
             }
             .btn-pantalla-completa {
                 margin: 10px;
@@ -252,15 +260,15 @@
             <p></p>
         </div>
         <nav>
-            <button class="nav-btn activa" onclick="mostrarSeccion('sec-inicio', this)">Portada</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-intro', this)">Introducción</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-oportunidad', this)">1. Costo de oportunidad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)">2. Macroeconomía</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)">3. Inflación</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)">4. Campeche</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)">5. Seguridad</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)">6. Conclusiones</button>
-            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)">7.Preguntas que debemos hacernos como economistas</button>
+            <button class="nav-btn activa" onclick="mostrarSeccion('sec-inicio', this)"><span class="icono-menu">🏟️</span>Portada</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-intro', this)"><span class="icono-menu">🏆</span>Introducción</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-oportunidad', this)"><span class="icono-menu">🥊</span>1. Costo de oportunidad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-macro', this)"><span class="icono-menu">📈</span>2. Macroeconomía</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-micro', this)"><span class="icono-menu">💸</span>3. Inflación</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-campeche', this)"><span class="icono-menu">🚄</span>4. Efecto Campeche</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-seguridad', this)"><span class="icono-menu">👮</span>5. Seguridad</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-conclusion', this)"><span class="icono-menu">🏁</span>6. Conclusiones</button>
+            <button class="nav-btn" onclick="mostrarSeccion('sec-qa', this)"><span class="icono-menu">❓</span>7. Q&A</button>
         </nav>
         <button id="btn-fullscreen" class="btn-pantalla-completa" onclick="alternarPantallaCompleta()">Ver en pantalla completa</button>
     </aside>
@@ -269,113 +277,111 @@
         <div class="contenedor-contenido">
             
             <div id="sec-inicio" class="seccion activa" style="text-align: center; margin-top: 10%;">
-                <h2 style="border: none; font-size: 3em; color: var(--color-primario);">El mundial 2026 frente a la realidad económica y social de México</h2>
+                <h2 style="border: none; font-size: 3em; color: var(--color-primario);">El mundial 2026: Un análisis de variables macroeconómicas y fallas estructurales</h2>
                 <p style="font-size: 1.5em; color: #7f8c8d;"></p>
             </div>
 
             <div id="sec-intro" class="seccion">
                 <h2>Introducción</h2>
                 <ul>
-                    <li>A solo 3 meses del evento (junio 2026), México hace historia al ser sede por tercera vez.</li>
-                    <li>Recordamos el mundial del 70 con Pelé y del 86 con Maradona.</li>
-                    <li>El fútbol en nuestro país, un tejido social y una enorme maquinaria económica.</li>
-                    <li>El objetivo de hoy es analizar más allá del gusto deportivo, viendo el impacto económico real frente al contexto nacional y estatal.</li>
+                    <li>A solo 3 meses del evento (junio 2026), México hace historia al ser sede por tercera vez, atrayendo una inyección masiva de capital exógeno.</li>
+                    <li>Más allá de la rentabilidad deportiva, el torneo representa un "choque de demanda" temporal sobre la economía nacional.</li>
+                    <li>El objetivo de hoy es desglosar este fenómeno desde la teoría económica: evaluando el verdadero retorno sobre la inversión (ROI), el efecto multiplicador y las externalidades que impactarán el tejido socioeconómico mexicano.</li>
                 </ul>
             </div>
 
             <div id="sec-oportunidad" class="seccion">
-                <h2>1. Costo de oportunidad</h2>
+                <h2>1. Costo de oportunidad y asignación de recursos</h2>
                 <ul>
-                    <li>El fútbol acapara el 90% de atención, patrocinios y recursos.</li>
-                    <li>Sin embargo, sufrimos un estancamiento deportivo global (la obsesión por el "quinto partido").</li>
-                    <li>Contraste con nuestras verdaderas potencias mundiales con menor presupuesto:
+                    <li>El fútbol ejerce un casi-monopolio en la captación de renta, acaparando el 90% de la inversión privada y recursos mediáticos.</li>
+                    <li>En términos de <strong>eficiencia de Pareto</strong>, existe una asignación subóptima del capital humano deportivo, evidenciada por el estancamiento competitivo global.</li>
+                    <li>Disciplinas con una mayor tasa de conversión (eficiencia marginal del capital invertido frente a resultados) sufren de subcapitalización crónica:
                         <ul>
-                            <li><strong>Boxeo:</strong> exportación constante de campeones.</li>
-                            <li><strong>Clavados y taekwondo:</strong> medallas olímpicas pese a crisis estructurales.</li>
-                            <li><strong>Béisbol:</strong> semifinales históricas en el clásico de 2023.</li>
+                            <li><strong>Boxeo:</strong> alta elasticidad en la exportación de talento y campeones mundiales.</li>
+                            <li><strong>Clavados y taekwondo:</strong> rendimiento olímpico sostenido pese a restricciones presupuestarias severas.</li>
+                            <li><strong>Béisbol:</strong> retornos históricos recientes que demuestran un mercado subexplotado.</li>
                         </ul>
                     </li>
                 </ul>
             </div>
 
             <div id="sec-macro" class="seccion">
-                <h2>2. Realidad macroeconómica</h2>
+                <h2>2. Realidad macroeconómica: El efecto multiplicador</h2>
                 <ul>
-                    <li>Acierto logístico: modernizamos la infraestructura existente (CDMX, Guadalajara, Monterrey) sin endeudarnos masivamente.</li>
-                    <li>Proyecciones optimistas:
+                    <li><strong>Ahorro en infraestructura:</strong> Se evitó el endeudamiento público al modernizar capital fijo existente (estadios en CDMX, GDL, MTY), mitigando el déficit fiscal post-evento.</li>
+                    <li><strong>Proyecciones de inyección exógena:</strong>
                         <ul>
-                            <li><strong>Derrama directa:</strong> 2,700 a 3,000 millones de dólares.</li>
-                            <li><strong>Flujo turístico:</strong> 5.5 millones de visitantes.</li>
+                            <li>Derrama directa estimada en 2,700 a 3,000 millones de USD.</li>
+                            <li>Demanda agregada impulsada por 5.5 millones de visitantes.</li>
                         </ul>
                     </li>
-                    <li>La realidad macro: aportará solo entre 0.1% y 0.14% adicional al PIB. Un leve respiro que no es una solución estructural.</li>
+                    <li><strong>La fricción macroeconómica:</strong> Debido a la alta propensión marginal a importar y las fugas de capital características de los megaeventos, el <strong>multiplicador keynesiano</strong> será bajo. La aportación neta al PIB oscilará apenas entre el 0.1% y 0.14%, operando como un estímulo cíclico, no estructural.</li>
                 </ul>
             </div>
 
             <div id="sec-micro" class="seccion">
-                <h2>3. Inflación e informalidad</h2>
+                <h2>3. Inflación por tirón de demanda y la trampa informal</h2>
                 <ul>
-                    <li><strong>Inflación:</strong> la llegada de dólares y euros encarecerá la vida local. El "efecto Airbnb" afectará rentas y servicios en zonas aledañas a los estadios.</li>
-                    <li><strong>La informalidad:</strong> más del 50% de la economía opera en este sector.</li>
-                    <li>El flujo de efectivo en las calles no se traducirá en recaudación fiscal ni en empleos con seguridad social a largo plazo.</li>
+                    <li><strong>Inflación y efecto <em>Crowding Out</em>:</strong> La inyección de divisas sobre una oferta inmobiliaria inelástica provocará una severa inflación por tirón de demanda. El "efecto Airbnb" desplazará a los residentes locales al encarecer agresivamente los bienes no transables (rentas y servicios básicos).</li>
+                    <li><strong>La economía sumergida (Informalidad):</strong> Más del 50% de la Población Económicamente Activa (PEA) opera fuera del marco regulatorio.</li>
+                    <li><strong>Pérdida de recaudación:</strong> Esta falla del mercado provocará que el flujo de efectivo no se refleje en un ensanchamiento de la base gravable. El crecimiento no se traducirá en ingresos fiscales sostenidos ni en prestaciones sociales a largo plazo.</li>
                 </ul>
             </div>
 
             <div id="sec-campeche" class="seccion">
-                <h2>4. El efecto para Campeche</h2>
+                <h2>4. Modelo núcleo-periferia: El efecto en Campeche</h2>
                 <ul>
-                    <li><strong>Inflación:</strong> la economía local absorberá el impacto inflacionario nacional (costos logísticos, alimentos) sin recibir directamente la derrama de divisas.</li>
-                    <li><strong>Turismo:</strong> a través del Tren Maya y el aeropuerto, podemos atraer a turistas internacionales que buscan escapar del caos y los sobreprecios de las ciudades sede.</li>
-                    <li><strong>Meta:</strong> posicionar a Campeche como un "refugio cultural y seguro", apoyándonos en nuestro estatus de patrimonio de la humanidad, Calakmul y altos índices de paz.</li>
-                    <li><strong>Reto:</strong> para captar este mercado, pymes y sector turístico deben empaquetar experiencias, digitalizar métodos de cobro y ofrecer información en inglés.</li>
+                    <li><strong>Choque asimétrico (Riesgo inflacionario):</strong> Como economía periférica, Campeche corre el riesgo de "importar" la inflación de las ciudades núcleo (aumento en los costos logísticos de la cadena de suministro) sin captar la derrama directa de IED o turismo.</li>
+                    <li><strong>Captura de valor mediante externalidades positivas:</strong> La infraestructura del Tren Maya y el aeropuerto permiten crear una oferta sustitutiva atractiva frente a los precios hiperinflados de las sedes principales.</li>
+                    <li><strong>Diferenciación competitiva:</strong> Posicionar a Campeche como un "activo refugio" turístico, capitalizando la ventaja comparativa de su seguridad y el patrimonio de Calakmul.</li>
+                    <li><strong>Reducción de costos de transacción:</strong> Para capturar esta demanda, los agentes locales (pymes) deben reducir las fricciones de mercado adoptando pasarelas de pago digitales internacionales y paquetizando bienes transables (experiencias culturales).</li>
                 </ul>
             </div>
 
             <div id="sec-seguridad" class="seccion">
-                <h2>5. Crisis de seguridad</h2>
+                <h2>5. Externalidades negativas: La crisis de seguridad</h2>
                 <ul>
-                    <li>La variable más crítica, la muerte de "El Mencho" y la reestructuración criminal violenta.</li>
-                    <li>Afectación directa a sedes clave como Guadalajara y estados vecinos por bloqueos y enfrentamientos.</li>
-                    <li>El miedo destruye la economía turística: el riesgo de alertas de viaje severas por parte de Estados Unidos o Canadá.</li>
-                    <li>Amenaza real de cancelaciones masivas que desplomarían la derrama económica proyectada.</li>
+                    <li><strong>Aumento de la prima de riesgo:</strong> La reestructuración criminal violenta (post "El Mencho") actúa como un impuesto oculto a la inversión y la operatividad empresarial en estados vecinos a las sedes como Jalisco.</li>
+                    <li><strong>Elasticidad de la demanda internacional:</strong> El turista extranjero tiene una alta sensibilidad (demanda elástica) frente a los riesgos de seguridad física.</li>
+                    <li><strong>Choque contractivo:</strong> El riesgo de alertas de viaje emitidas por Estados Unidos o Canadá podría provocar cancelaciones masivas. Esto destruiría las proyecciones de demanda agregada, dejando a la industria de servicios con "costos hundidos" irreparables.</li>
                 </ul>
             </div>
 
             <div id="sec-conclusion" class="seccion">
                 <h2>6. Conclusiones</h2>
                 <ul>
-                    <li>Hospedar tres mundiales es un hito de orgullo y generará inyección de capital a corto plazo en ciertos sectores.</li>
-                    <li>Pero el torneo dura un mes; nuestras fracturas crónicas (informalidad, inflación y seguridad desbordada) se quedan.</li>
-                    <li>Digitalizar negocios y aprovechar la oportunidad comercial con precaución.</li>
-                    <li>La paz y el desarrollo de México se juega todos los días, y hoy, tenemos mucho en contra.</li>
+                    <li>Hospedar el torneo genera un impulso positivo en la balanza de pagos a corto plazo y eleva los activos intangibles de la marca país.</li>
+                    <li>No obstante, el estímulo es efímero. Nuestras deficiencias estructurales endémicas (mercado laboral segmentado/informal, inflación subyacente y debilidad institucional en seguridad) neutralizan el crecimiento a largo plazo.</li>
+                    <li>La estrategia microeconómica exige la digitalización agresiva de las pymes locales para retener el capital extranjero.</li>
+                    <li>El verdadero desarrollo económico sostenido no depende de choques cíclicos de demanda, sino de la corrección de nuestras fallas de mercado.</li>
                 </ul>
             </div>
 
             <div id="sec-qa" class="seccion">
-                <h2>7. Preguntas desde la perspectiva económica</h2>
+                <h2>7. Preguntas y respuestas (apoyo técnico)</h2>
                 
                 <div class="qa-box">
-                    <h3>Pregunta 1</h3>
-                    <p><strong>Cancelación:</strong> "Sabiendo que la FIFA se lleva las ganancias sin pagar impuestos mientras a nosotros nos pega la inflación, ¿no habría sido mejor rechazar ser sede?"</p>
-                    <p><strong></strong> "El aislacionismo no es la solución. Negarnos significaría perder miles de millones en inyección extranjera y una vitrina global. El problema real no es el mundial, es nuestra debilidad estructural. La lección no es dejar de invitar al mundo a nuestra casa, sino arreglar nuestra casa: formalizar el empleo y digitalizar a nuestras pymes para retener esa riqueza."</p>
+                    <h3>Exenciones fiscales y el monopolio de la FIFA</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "¿Tiene sentido económico organizar un evento donde el ente rector (FIFA) repatría las ganancias sin pagar impuestos locales?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Es un clásico dilema de competencia fiscal. Aceptar las exenciones es el 'costo de entrada' en un mercado monopolístico global. Si bien hay una fuga fiscal directa, la compensación económica se busca vía impuestos indirectos (IVA, IEPS) sobre el consumo de los visitantes y el aumento del empleo temporal en la industria terciaria. El reto no es cobrarle a la FIFA, sino formalizar nuestra economía para retener la derrama indirecta."</p>
                 </div>
 
                 <div class="qa-box">
-                    <h3>Pregunta 2</h3>
-                    <p><strong>Seguridad:</strong> "Faltando solo 90 días, ¿es factible que la FIFA decida quitarnos sedes si la violencia empeora?"</p>
-                    <p><strong></strong> "Logísticamente es casi imposible a estas alturas por los contratos establecidos. Lo que ocurrirá es un 'encapsulamiento de seguridad', burbujas supervigiladas en estadios y hoteles. El verdadero riesgo no es perder la sede, sino perder al turista que cancele su vuelo por miedo a las alertas internacionales."</p>
+                    <h3>Mitigación del riesgo por inseguridad</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "¿Podría un repunte de violencia causar una retirada de la IED turística o un cambio de sede de última hora?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Institucionalmente es inviable retirar la sede por los altos costos de transacción y los contratos blindados. La solución será un 'encapsulamiento' logístico (burbujas de hiperseguridad). El verdadero impacto asimétrico no lo sufrirá el evento, sino el ecosistema de pequeñas empresas aledañas, que enfrentarán caídas abruptas en la demanda local por el miedo del consumidor general."</p>
                 </div>
 
                 <div class="qa-box">
-                    <h3>Pregunta 3</h3>
-                    <p><strong>Consumidores:</strong> "Como ciudadanos o dueños de pequeños negocios, ¿qué podemos hacer hoy para protegernos del 'efecto Airbnb' y la inflación?"</p>
-                    <p><strong></strong> "Como inquilinos, renegociar contratos a largo plazo antes de mayo. Como consumidores, anticipar compras. Y como dueños de pymes, la adaptación agresiva: conseguir terminales de cobro internacional, ofrecer Wi-Fi y traducir menús al inglés para transformar esa amenaza en inyección directa de capital."</p>
+                    <h3>Cobertura contra la gentrificación</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "¿Qué mecanismo de defensa microeconómica tienen los negocios y ciudadanos ante el pico inflacionario del Mundial?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Para los agentes económicos locales, la clave es fijar precios futuros hoy. Inquilinos deben asegurar contratos a largo plazo antes del choque de demanda; los consumidores deben anticipar la adquisición de bienes duraderos. Las pymes, por su parte, deben indexar temporalmente su oferta al mercado internacional (captación en divisas vía digitalización) para proteger sus márgenes de utilidad reales."</p>
                 </div>
 
                 <div class="qa-box">
-                    <h3>Pregunta 4</h3>
-                    <p><strong>Campeche:</strong> "Como dueño de un pequeño negocio en Campeche, ¿qué paso práctico debo dar hoy para atraer a ese turista extranjero que desea salir de las sedes principales?"</p>
-                    <p><strong></strong> "La clave absoluta es la modernización digital. El turista no llegará a Campeche por casualidad; lo va a planear desde su país al ver los precios de CDMX o Guadalajara. El emprendedor debe asegurar hoy su presencia en mapas digitales en inglés, habilitar cobros internacionales y dejar de vender servicios para empaquetar 'experiencias culturales'. Los empresarios en Campeche deben aliarse con agencias en la Riviera Maya para ser la estadía obligada en la ruta del Tren Maya."</p>
+                    <h3>Estrategia comercial para Campeche</h3>
+                    <p><strong>Lo que te pueden preguntar:</strong> "En términos microeconómicos, ¿cuál es el paso esencial para el emprendedor de Campeche que busca atraer a ese turista?"</p>
+                    <p><strong>Respuesta sugerida:</strong> "Reducir radicalmente la asimetría de información y los costos de transacción. El turista optimiza racionalmente; al descartar CDMX por sobreprecio, buscará la siguiente mejor alternativa. El negocio campechano debe tener visibilidad SEO en inglés y pasarelas de pago internacionales sin fricción. Además, debe implementar una estrategia de 'bundling' (paquetización), aliándose con proveedores de la Riviera Maya para ofrecer el Tren Maya como un producto complementario de alto valor cultural y baja prima de riesgo."</p>
                 </div>
             </div>
 
@@ -393,7 +399,6 @@
             document.getElementById(idSeccion).classList.add('activa');
             boton.classList.add('activa');
             
-            // Si estamos en móvil, centramos el botón pulsado en la vista de la barra deslizante
             if (window.innerWidth <= 768) {
                 boton.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
